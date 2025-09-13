@@ -2,41 +2,84 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Premium AI Finance Tool Design System - Apple Elegance + Futuristic Visuals */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Background System */
+    --background: 222 15% 6%;
+    --background-secondary: 222 18% 8%;
+    --background-tertiary: 222 22% 10%;
+    --foreground: 210 40% 98%;
+    --foreground-secondary: 210 20% 85%;
+    --foreground-muted: 210 15% 65%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Glass & Card System */
+    --card: 222 25% 12%;
+    --card-foreground: 210 40% 98%;
+    --card-glass: 222 20% 15% / 0.4;
+    --card-glass-border: 210 50% 80% / 0.1;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Premium Color Palette */
+    --primary: 193 100% 55%;
+    --primary-dark: 193 100% 45%;
+    --primary-light: 193 100% 65%;
+    --primary-foreground: 222 15% 6%;
+    --primary-glow: 193 100% 55% / 0.3;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Secondary Purple Accent */
+    --secondary: 258 90% 66%;
+    --secondary-dark: 258 90% 56%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-glow: 258 90% 66% / 0.3;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Success & Error States */
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    --success-glow: 142 76% 36% / 0.3;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
+    --destructive-glow: 0 84% 60% / 0.3;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Warning & Info */
+    --warning: 48 96% 53%;
+    --warning-foreground: 222 15% 6%;
+    --warning-glow: 48 96% 53% / 0.3;
 
-    --radius: 0.5rem;
+    /* Interactive Elements */
+    --muted: 222 25% 16%;
+    --muted-foreground: 210 15% 65%;
+    --accent: 222 25% 18%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Borders & Inputs */
+    --border: 222 20% 20%;
+    --border-glass: 210 50% 80% / 0.15;
+    --input: 222 25% 14%;
+    --input-glass: 222 20% 16% / 0.6;
+    --ring: 193 100% 55%;
+
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(193 100% 55%) 0%, hsl(258 90% 66%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(258 90% 66%) 0%, hsl(193 100% 55%) 100%);
+    --gradient-background: linear-gradient(135deg, hsl(222 15% 6%) 0%, hsl(222 25% 12%) 50%, hsl(258 20% 8%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(222 20% 15% / 0.4) 0%, hsl(210 30% 20% / 0.2) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(222 25% 12% / 0.8) 0%, hsl(222 30% 16% / 0.6) 100%);
+
+    /* Shadows & Glows */
+    --shadow-premium: 0 25px 50px -12px hsl(222 15% 0% / 0.8);
+    --shadow-glass: 0 8px 32px hsl(222 15% 0% / 0.3);
+    --shadow-glow: 0 0 40px hsl(193 100% 55% / 0.15);
+    --shadow-glow-strong: 0 0 60px hsl(193 100% 55% / 0.3);
+
+    /* Animation Curves */
+    --ease-premium: cubic-bezier(0.23, 1, 0.32, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-premium: all 0.4s var(--ease-premium);
+    --transition-fast: all 0.2s var(--ease-premium);
+
+    --radius: 1rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -94,6 +137,9 @@ All colors MUST be HSL.
   }
 }
 
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -101,5 +147,199 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.6);
+  }
+}
+
+@layer components {
+  /* Glass Card Component */
+  .glass-card {
+    background: var(--gradient-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border-glass));
+    box-shadow: var(--shadow-glass);
+    @apply rounded-xl;
+  }
+
+  /* Premium Button Variants */
+  .btn-hero {
+    background: var(--gradient-primary);
+    color: hsl(var(--primary-foreground));
+    border: 0;
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-premium);
+    @apply font-semibold px-8 py-4 rounded-xl;
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow-strong);
+  }
+
+  .btn-glass {
+    background: hsl(var(--card-glass));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border-glass));
+    color: hsl(var(--foreground));
+    transition: var(--transition-premium);
+    @apply rounded-xl;
+  }
+
+  .btn-glass:hover {
+    background: hsl(var(--primary) / 0.1);
+    border-color: hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 20px hsl(var(--primary-glow));
+  }
+
+  /* Premium Input Styling */
+  .input-glass {
+    background: hsl(var(--input-glass));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid hsl(var(--border-glass));
+    color: hsl(var(--foreground));
+    transition: var(--transition-premium);
+    @apply rounded-xl px-4 py-3;
+  }
+
+  .input-glass:focus {
+    outline: none;
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary-glow));
+  }
+
+  /* Premium Text Gradients */
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-secondary {
+    background: var(--gradient-secondary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow Effects */
+  .glow-primary {
+    box-shadow: 0 0 30px hsl(var(--primary-glow));
+  }
+
+  .glow-secondary {
+    box-shadow: 0 0 30px hsl(var(--secondary-glow));
+  }
+
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s var(--ease-premium);
+  }
+
+  /* Hover Scale Effect */
+  .hover-scale {
+    transition: var(--transition-premium);
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02) translateY(-2px);
+  }
+}
+
+@layer utilities {
+  /* Background Utilities */
+  .bg-glass {
+    background: hsl(var(--card-glass));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .bg-gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  /* Border Utilities */
+  .border-glass {
+    border-color: hsl(var(--border-glass));
+  }
+
+  /* Shadow Utilities */
+  .shadow-premium {
+    box-shadow: var(--shadow-premium);
+  }
+
+  .shadow-glass {
+    box-shadow: var(--shadow-glass);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .shadow-glow-strong {
+    box-shadow: var(--shadow-glow-strong);
+  }
+}
+
+/* Keyframe Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary-glow)); }
+  50% { box-shadow: 0 0 40px hsl(var(--primary-glow)), 0 0 60px hsl(var(--primary-glow)); }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
